@@ -20,6 +20,7 @@ fields = ["id", "label"] + numeric_features + categorical_features
 numeric_transformer = Pipeline(steps=[
     ('imputer', SimpleImputer(strategy='median')),
 ])
+
 categorical_transformer = Pipeline(steps=[
     ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
     ('label', OneHotEncoder(handle_unknown='ignore'))
@@ -38,4 +39,3 @@ model = Pipeline(steps=[
     ('preprocessor', preprocessor),
     ('knc', KNeighborsClassifier(n_neighbors=5))
 ])
-
