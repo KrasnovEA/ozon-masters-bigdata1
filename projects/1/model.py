@@ -11,9 +11,9 @@ numeric_features = ["if"+str(i) for i in range(1,14)]
 categorical_features = ["cf"+str(i) for i in range(1,27)] + ["day_number"]
 
 fields = ["id", "label"] + numeric_features + categorical_features
-#
-# Model pipeline
-#
+
+
+categorical_features = ['cf6', 'cf9', 'cf13', 'cf16', 'cf17', 'cf19', 'cf25', 'cf26', 'day_number']
 
 # We create the preprocessing pipelines for both numeric and categorical data.
 
