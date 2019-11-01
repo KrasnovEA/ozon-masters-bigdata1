@@ -36,23 +36,21 @@ logging.info(f"TRAIN_ID {proj_id}")
 logging.info(f"TRAIN_PATH {train_path}")
 
 
-read_table_opts = dict(sep=",", names=fields, index_col=False)
+read_table_opts = dict(sep="\t", names=fields, index_col=False)
 df = pd.read_table(train_path, **read_table_opts)
 
-numeric_features = ["if"+str(i) for i in range(1,14)]
-categorical_features = ["cf"+str(i) for i in range(1,27)] + ["day_number"]
-
-fields = ["id", "label"] + numeric_features + categorical_features
 
 categorical_features_new = []
 for el in categorical_features:
     if len(df[el].unique()) < 30:
         categorical_features_new.append(el)
 
+numeric_features = ["if"+str(i) for i in range(1,14)]
+
 
 #split train/test
 X_train, X_test, y_train, y_test = train_test_split(
-    df[categorical_features_new + numeric_features], df.iloc[:,1], test_size=0.33, random_state=42
+    df[numeric_features + categorical_features_new], df.iloc[:,1], test_size=0.33, random_state=42
 )
 
 #
