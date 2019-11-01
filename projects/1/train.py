@@ -10,7 +10,7 @@ from joblib import dump
 #
 # Import model definition
 #
-from model import model, fields
+from model import model, fields, categorical_features
 
 
 #
