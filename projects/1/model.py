@@ -1,10 +1,8 @@
-#!/opt/conda/envs/dsenv/bin/python
-
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB, BernoulliNB
 
 #
 # Dataset fields
@@ -39,5 +37,5 @@ preprocessor = ColumnTransformer(
 # Now we have a full prediction pipeline.
 model = Pipeline(steps=[
     ('preprocessor', preprocessor),
-    ('knc', KNeighborsClassifier(n_neighbors=5))
+    ('BNB', BernoulliNB())
 ])

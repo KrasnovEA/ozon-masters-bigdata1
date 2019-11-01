@@ -26,7 +26,6 @@ read_opts=dict(
 )
 
 for df in pd.read_csv(sys.stdin, **read_opts):
-    print ('1')
     pred = model.predict_proba(df)[:, 1]
     out = zip(df.doc_id, pred)
     print("\n".join(["{0},{1}".format(*i) for i in out]))
