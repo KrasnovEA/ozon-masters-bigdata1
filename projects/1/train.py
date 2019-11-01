@@ -10,7 +10,7 @@ from joblib import dump
 #
 # Import model definition
 #
-from model import model, fields, categorical_features
+from model import model, fields, categorical_features, numeric_features
 
 
 #
@@ -42,10 +42,8 @@ df = pd.read_table(train_path, **read_table_opts)
 
 categorical_features_new = []
 for el in categorical_features:
-    if len(df[el].unique()) < 30:
+    if len(df[el].unique()) < 100:
         categorical_features_new.append(el)
-
-numeric_features = ["if"+str(i) for i in range(1,14)]
 
 
 #split train/test
