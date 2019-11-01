@@ -44,11 +44,12 @@ categorical_features_new = []
 for el in categorical_features:
     if len(df[el].unique()) < 100:
         categorical_features_new.append(el)
+categorical_features = categorical_features_new
 
 
 #split train/test
 X_train, X_test, y_train, y_test = train_test_split(
-    df[numeric_features + categorical_features_new], df.iloc[:,1], test_size=0.33, random_state=42
+    df[numeric_features + categorical_features], df.iloc[:,1], test_size=0.33, random_state=42
 )
 
 #
