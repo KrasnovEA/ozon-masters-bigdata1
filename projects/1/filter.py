@@ -8,6 +8,8 @@ import logging
 sys.path.append('.')
 from model import fields
 
+fields = ['id'] + fields[2:]
+
 logging.basicConfig(level=logging.DEBUG)
 logging.info("CURRENT_DIR {}".format(os.getcwd()))
 logging.info("SCRIPT CALLED AS {}".format(sys.argv[0]))

@@ -8,6 +8,8 @@ import pandas as pd
 sys.path.append('.')
 from model import fields, categorical_features, numeric_features
 
+fields = ['id'] + fields[2:]
+
 #
 # Init the logger
 #
