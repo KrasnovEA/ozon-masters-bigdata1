@@ -29,6 +29,6 @@ read_opts=dict(
 
 for df in pd.read_csv(sys.stdin, **read_opts):
     pred = model.predict_proba(df[numeric_features + categorical_features])[:, 1]
-    out = zip(df.id, pred)
-    print("\n".join(["{0},{1}".format(*i) for i in out]))
+    out = zip(df['id'], pred)
+    print("\n".join(["{0}\t{1}".format(*i) for i in out]))
 
