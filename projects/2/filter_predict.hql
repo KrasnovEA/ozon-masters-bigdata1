@@ -1,4 +1,4 @@
-add archive /home/users/KrasnovEA/ozon-masters-bigdata/projects/2/predict.py;
+add archive projects/2/predict.py;
 insert into hw2_pred select * from(
     select transform(*) using 'predict.py' as (id, pred) from(
         select * from hw2_test
