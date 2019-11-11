@@ -1,5 +1,7 @@
 add archive projects/2/predict.py;
 add archive projects/2/model.py;
+add archive projects/2/2.joblib;
+
 
 
 insert into hw2_pred select * from(
