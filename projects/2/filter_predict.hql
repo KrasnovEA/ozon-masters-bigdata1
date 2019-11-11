@@ -1,6 +1,6 @@
 add archive projects/2/predict.py;
 add archive projects/2/model.py;
-add archive projects/2/2.joblib;
+add archive 2.joblib;
 
 
 
