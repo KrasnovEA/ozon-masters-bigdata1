@@ -27,7 +27,6 @@ except:
 logging.info(f"TRUE PATH {true_path}")
 logging.info(f"PRED PATH {pred_path}")
 
-pred_path = 'predict.py'
 
 #open true path
 df_true = pd.read_csv(true_path, sep = '\t', header=None, index_col=0, names=["id", "true"])
