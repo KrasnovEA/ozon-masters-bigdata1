@@ -5,7 +5,7 @@ add archive 2.joblib;
 
 insert into hw2_pred select * from(
     select transform(*) using 'predict.py' as (id, pred) from(
-        select
+        select * from( select
         id,
         nvl(if1, ''),
         nvl(if2, ''),
@@ -47,4 +47,4 @@ insert into hw2_pred select * from(
         nvl(cf25, ''),
         nvl(cf26, ''),
         nvl(day_number, '') from hw2_test
-        where nvl(if1, 0) > 20 and nvl(if1, 0) < 40) temp_name) temp_name;
+        where nvl(if1, 0) > 20 and nvl(if1, 0) < 40) temp_name) temp_name) temp_name;
