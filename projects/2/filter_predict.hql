@@ -46,6 +46,5 @@ insert into hw2_pred select * from(
         nvl(cf24, ''),
         nvl(cf25, ''),
         nvl(cf26, ''),
-        nvl(day_number, ''),
-        from hw2_test
+        nvl(day_number, '') from hw2_test
         where nvl(if1, 0) > 20 and nvl(if1, 0) < 40) temp_name) temp_name;
