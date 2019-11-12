@@ -6,7 +6,7 @@ add archive 2.joblib;
 insert into hw2_pred select * from(
     select transform(*) using 'predict.py' as (id, pred) from(
         select
-        nvl(id, 0),
+        id,
         nvl(if1, ''),
         nvl(if2, ''),
         nvl(if3, ''),
