@@ -11,7 +11,7 @@ spark.sparkContext.setLogLevel('WARN')
 df_schema = StructType(fields = [StructField("user_base", IntegerType()),
     StructField("follower_base", IntegerType())])
 
-df = spark.read.csv(f'{sys.argv[1]}', sep= '\t', schema = df_schema)
+df = spark.read.csv(str(sys.argv[3]), sep= '\t', schema = df_schema)
 
 def shortest_path(v_from, v_to, df, max_path_length=10):
     k = 1
@@ -26,7 +26,7 @@ def shortest_path(v_from, v_to, df, max_path_length=10):
         k += 1
     return 0
 
-a = shortest_path(sys.argv[2], sys.argv[3], df)
+a = shortest_path(sys.argv[1], sys.argv[2], df)
 
 a = a.select(f.concat_ws(',', *a.columns[::-1]).alias('path'))
 a.select("path").write.mode("overwrite").text(str(sys.argv[4]))
